@@ -2,23 +2,32 @@ package doyenify.sms.entities;
 
 import java.math.BigDecimal;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name="products")
+//shows this to be a database object
+
 public class product {
-    private String id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String name;
     private String description;
     private BigDecimal price;
 
     
-    public product(String id, String name, String description, BigDecimal price) {
+    public product(Long id, String name, String description, BigDecimal price) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
     }
-    public String getId() {
+    public Long getId() {
         return id;
     }
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
     public String getName() {
@@ -40,8 +49,5 @@ public class product {
         this.price = price;
     }
     public product() {
-    }
-
-
-    
+    } 
 }
